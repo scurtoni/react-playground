@@ -1,24 +1,12 @@
 module.exports = {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "eslint-plugin-import",
-    "prettier"
-  ],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "eslint-plugin-import", "prettier"],
   "env": {
     "browser": true
   },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:react/recommended", "plugin:prettier/recommended", "plugin:storybook/recommended"],
   "parserOptions": {
-    "project": [
-      "tsconfig.json"
-    ],
+    "project": ["tsconfig.json"],
     "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
@@ -57,15 +45,13 @@ module.exports = {
     'prefer-const': 'off',
     'jsx-a11y/no-autofocus': 'off',
     'no-var': 'error',
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'none',
-        ignoreRestSiblings: false,
-        varsIgnorePattern: '^log$|React|models',
-      },
-    ], // duplicate of no-unused-vars
+    '@typescript-eslint/no-unused-vars': ['error', {
+      vars: 'all',
+      args: 'none',
+      ignoreRestSiblings: false,
+      varsIgnorePattern: '^log$|React|models'
+    }],
+    // duplicate of no-unused-vars
     // 'no-unused-vars': [
     //   'error',
     //   {
@@ -78,11 +64,11 @@ module.exports = {
     'no-unused-vars': ['off'],
     'no-use-before-define': 'off',
     'padded-blocks': [1, 'never'],
-    indent: 'off',
+    indent: 'off'
   },
   "settings": {
     "react": {
       "version": "detect"
     }
   }
-}
+};
