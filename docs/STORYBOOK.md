@@ -30,3 +30,17 @@ npm scripts:
 
 Note:
 rerun npm install after the fix
+
+Note:
+if you want to use TypeScript path aliases in storybook add the folowing fix into main.js config file:
+
+```
+webpackFinal: async (config, {configType}) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@components": path.resolve(__dirname, "../src/components"),
+      ....
+    };
+    return config;
+  }
+```
