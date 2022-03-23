@@ -22,6 +22,11 @@ const instance = {
       return data.data;
     });
   },
+  searchPeople: (term: string): Promise<any> => {
+    return api.get(`people/?search=${term}`).then(({data}) => {
+      return data.data;
+    });
+  },
   getPlanet: async (id: number): Promise<any> => {
     return await api.get(`planet/${1}/`).then(({data}) => {
       return data.data;

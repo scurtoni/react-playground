@@ -1,9 +1,9 @@
-import React from "react";
+import React, {FC} from "react";
 import "./button.css";
 
-import MuiButton from "@mui/material/Button";
+import MuiButton, {ButtonProps as MuiButtonProps} from "@mui/material/Button";
 
-interface ButtonProps {
+interface ButtonProps extends MuiButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
@@ -29,11 +29,11 @@ interface ButtonProps {
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({primary = false, size = "medium", backgroundColor, label, ...props}: ButtonProps) => {
+export const Button: FC<ButtonProps> = ({primary = false, size = "medium", backgroundColor, label, ...props}: ButtonProps) => {
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
   return (
     <MuiButton color="primary" className={["storybook-button", `storybook-button--${size}`, mode].join(" ")} style={{backgroundColor}} {...props}>
-      {label}
+      {props.children}
     </MuiButton>
   );
 };

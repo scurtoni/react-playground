@@ -15,7 +15,11 @@
     "moduleResolution": "node",
     "downlevelIteration": true,
     "paths": {
-      "@components/*": ["src/components/*"]
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@state/*": ["src/state/*"],
+      "@reduxState/*": ["src/state/redux/*"],
+      "@models": ["./src/models"]
     }
   },
   "include": ["./src", "./webpack.config.ts"]

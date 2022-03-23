@@ -19,3 +19,5 @@ My personal playground for React
 [Storybook](docs/STORYBOOK.md)
 
 [Atomic Design](docs/ATOMIC_DESIGN.md)
+
+[Redux] (docs/REDUX.md)
