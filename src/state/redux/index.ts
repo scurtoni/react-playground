@@ -1,11 +1,14 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {rootReducer, rootSaga} from "./features/index";
+
+//import { rootReducer, rootSaga, rootEpic } from "./features/index";
+import {rootReducer, rootEpic} from "./features/index";
 import sagaMiddleware from "./middlewares/saga.middleware";
 import reduxMiddleware from "./middlewares/redux.middleware";
+import epicMiddleware from "./middlewares/epic.middleware";
 
 //TODO integrate history
 
-const middleware = [...reduxMiddleware, sagaMiddleware];
+const middleware = [...reduxMiddleware, sagaMiddleware, epicMiddleware];
 
 export default () => {
   const store = configureStore({
@@ -14,6 +17,7 @@ export default () => {
     middleware
     //  preloadedState,
   });
-  sagaMiddleware.run(rootSaga);
+  //sagaMiddleware.run(rootSaga);
+  epicMiddleware.run(rootEpic);
   return store;
 };

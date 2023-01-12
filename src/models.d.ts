@@ -1,14 +1,13 @@
 export type Planet = {};
 
 export type Person = {};
-export type SearchResults = {};
 
 export type ErrorState = {
   error: any;
 };
 
 export type SearchState = {
-  results: SearchResults;
+  results: Person[];
   term: string;
 };
 

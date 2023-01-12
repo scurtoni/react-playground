@@ -1,6 +1,6 @@
-import api from "@utils/api";
+import api from "../../../../utils/api";
 import {all, call, fork, put, takeEvery} from "redux-saga/effects";
-import {SearchActionTypes} from "@reduxState/common.types";
+import {SearchActionTypes} from "../../common.types";
 
 import models from "@models";
 import searchSlice from "./search.slice";
@@ -13,9 +13,9 @@ import searchSlice from "./search.slice";
 function* updateSearch(action: any) {
   try {
     //const currentResults = (yield select((state: models.ApplicationState) => state.search.result)) as models.SearchResults;
-    const term: string = action.payload.term;
+    //const term: string = action.payload.term;
 
-    const searchResults: models.SearchResults = yield call(api.searchPeople, term);
+    const searchResults: models.Person[] = yield call(api.getPeople);
 
     yield put(searchSlice.actions.updateResults(searchResults));
   } catch (e) {}
@@ -25,7 +25,7 @@ function* updateSearch(action: any) {
  * @desc Watches every specified action and runs effect method and passes action args to it
  */
 function* watchFetchRequest() {
-  yield takeEvery(SearchActionTypes.SEARCH_PEOPLE, updateSearch);
+  yield takeEvery(SearchActionTypes.API_POSTS_SAGA, updateSearch);
 }
 
 /**
