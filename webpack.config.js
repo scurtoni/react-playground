@@ -52,24 +52,17 @@ module.exports = {
               url: false
             }
           },
-          {
-            loader: "postcss-loader",
-            options: {
-              postcssOptions: {
-                plugins: () => [require("autoprefixer")]
-              }
-            }
-          },
           "resolve-url-loader",
           {
             loader: "sass-loader",
             options: {
               sourceMap: true,
               sassOptions: {
-                importer: globImporter()
+                outputStyle: "compressed"
               }
             }
-          }
+          },
+          "postcss-loader"
         ]
       },
       {

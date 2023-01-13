@@ -1,6 +1,9 @@
 export type Planet = {};
 
-export type Person = {};
+export type Person = {
+  id: string;
+  title?: string;
+};
 
 export type ErrorState = {
   error: any;

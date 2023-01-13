@@ -30,5 +30,5 @@
       "@style": ["src/style/main.css"]
     }
   },
-  "include": ["./src", "webpack.config.js"]
+  "include": ["./src", "webpack.config.js", "postcss.config.js"]
 }
