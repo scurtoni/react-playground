@@ -16,6 +16,7 @@ const RequestListRecoil = React.lazy(() => import(/* webpackChunkName: "recoil-p
 const ContractList = React.lazy(() => import(/* webpackChunkName: "contract-list-page" */ "./pages/ContractList"));
 const RequestDetails = React.lazy(() => import(/* webpackChunkName: "request-details-page" */ "./pages/RequestDetails"));
 const TailwindSample = React.lazy(() => import(/* webpackChunkName: "tailwind-page" */ "./pages/TailwindSample"));
+const RequestForm = React.lazy(() => import(/* webpackChunkName: "request-form-page" */ "./pages/RequestForm"));
 
 const App = () => (
   <RecoilRoot>
@@ -48,12 +49,18 @@ const App = () => (
                 Tailwind sample
               </Link>
             </li>
+            <li className="mr-6">
+              <Link to="/request-form" className="text-blue-500 hover:text-blue-800">
+                Request form
+              </Link>
+            </li>
           </ul>
           <hr />
           <Suspense fallback={<div>Loading..</div>}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/request-list" element={<RequestList />} />
+              <Route path="/request-form" element={<RequestForm />} />
               <Route path="/request-list/:id" element={<RequestDetails />} />
               <Route path="/contract-list" element={<ContractList />} />
               <Route path="/recoil-list" element={<RequestListRecoil />} />
