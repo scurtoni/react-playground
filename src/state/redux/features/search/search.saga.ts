@@ -25,7 +25,7 @@ function* updateSearch(action: any) {
  * @desc Watches every specified action and runs effect method and passes action args to it
  */
 function* watchFetchRequest() {
-  yield takeEvery(SearchActionTypes.API_POSTS_SAGA, updateSearch);
+  yield takeEvery(SearchActionTypes.API_REDUX_LIST_SAGA, updateSearch);
 }
 
 /**

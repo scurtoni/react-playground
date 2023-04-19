@@ -2,7 +2,6 @@ import React, {Suspense} from "react";
 import {BrowserRouter as Router, Link, Route, Routes} from "react-router-dom";
 import {Provider} from "react-redux";
 import configureStore from "./state/redux";
-//import Button from "@components/atoms/button/Button";
 import {RecoilRoot} from "recoil";
 import {initi18n} from "@utils/i18n";
 
@@ -11,7 +10,7 @@ const store = configureStore();
 initi18n();
 
 const Dashboard = React.lazy(() => import(/* webpackChunkName: "dashboard-page" */ "./pages/Dashboard"));
-const RequestList = React.lazy(() => import(/* webpackChunkName: "request-list-page" */ "./pages/RequestList"));
+const RequestList = React.lazy(() => import(/* webpackChunkName: "request-list-page" */ "./pages/ReduxList"));
 const RequestListRecoil = React.lazy(() => import(/* webpackChunkName: "recoil-page" */ "./pages/RequestListRecoil"));
 const ContractList = React.lazy(() => import(/* webpackChunkName: "contract-list-page" */ "./pages/ContractList"));
 const RequestDetails = React.lazy(() => import(/* webpackChunkName: "request-details-page" */ "./pages/RequestDetails"));
@@ -30,13 +29,13 @@ const App = () => (
               </Link>
             </li>
             <li className="mr-6">
-              <Link to="/request-list" className="text-blue-500 hover:text-blue-800">
-                Request List
+              <Link to="/redux-list" className="text-blue-500 hover:text-blue-800">
+                People List (Redux)
               </Link>
             </li>
             <li className="mr-6">
               <Link to="/recoil-list" className="text-blue-500 hover:text-blue-800">
-                Request list (Recoil)
+                People list (Recoil)
               </Link>
             </li>
             <li className="mr-6">
@@ -59,9 +58,9 @@ const App = () => (
           <Suspense fallback={<div>Loading..</div>}>
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/request-list" element={<RequestList />} />
+              <Route path="/redux-list" element={<RequestList />} />
+              <Route path="/redux-list/:id" element={<RequestDetails />} />
               <Route path="/request-form" element={<RequestForm />} />
-              <Route path="/request-list/:id" element={<RequestDetails />} />
               <Route path="/contract-list" element={<ContractList />} />
               <Route path="/recoil-list" element={<RequestListRecoil />} />
               <Route path="/tailwind" element={<TailwindSample />} />

@@ -8,7 +8,7 @@ const initialState: models.SearchState = {
   results: []
 };
 
-export const fetchRequest = createAsyncThunk(SearchActionTypes.API_POSTS_THUNK, async () => {
+export const fetchRequest = createAsyncThunk(SearchActionTypes.API_REDUX_LIST_THUNK, async () => {
   const response = await api.getPeople();
   return (await response.json()) as models.Person[];
 });

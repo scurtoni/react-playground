@@ -4,14 +4,15 @@ import {useDispatch, useSelector} from "react-redux";
 import {SearchActionTypes} from "../state/redux/common.types";
 import {ApplicationState} from "@models";
 
-const RequestList = () => {
+const ReduxList = () => {
   const dispatch = useDispatch();
 
   const {results} = useSelector((state: ApplicationState) => state.search);
 
+  /* change type to test redux saga or redux observable */
   useEffect(() => {
     dispatch({
-      type: SearchActionTypes.API_POSTS_THUNK,
+      type: SearchActionTypes.API_REDUX_LIST_SAGA,
       payload: {}
     });
   }, [dispatch]);
@@ -27,4 +28,4 @@ const RequestList = () => {
   );
 };
 
-export default RequestList;
+export default ReduxList;

@@ -1,0 +1,1 @@
+(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[28],{4028:(e,a,r)=>{"use strict";r.r(a),r.d(a,{default:()=>n});var t=r(7294);const n=function(e){var a=e.title;return t.createElement("div",null,"This is my dashboard!! ",a)}}}]);

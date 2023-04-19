@@ -1,0 +1,1 @@
+(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[460],{8460:(e,t,n)=>{"use strict";n.r(t),n.d(t,{default:()=>a});var r=n(7294);const a=function(){return r.createElement("div",null,"contract list")}}}]);

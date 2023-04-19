@@ -8,6 +8,6 @@ import searchSlice from "./search.slice";
 // epic
 export const searchEpic = (action$) =>
   action$.pipe(
-    ofType(SearchActionTypes.API_POSTS_OBSERVABLE),
+    ofType(SearchActionTypes.API_REDUX_LIST_OBSERVABLE),
     mergeMap((action) => from(api.getPeople()).pipe(map((response) => searchSlice.actions.updateResults(response))))
   );

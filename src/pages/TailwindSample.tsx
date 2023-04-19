@@ -12,7 +12,7 @@ const TailwindSample = () => {
 
   useEffect(() => {
     dispatch({
-      type: SearchActionTypes.API_POSTS_THUNK,
+      type: SearchActionTypes.API_REDUX_LIST_THUNK,
       payload: {}
     });
   }, [dispatch]);

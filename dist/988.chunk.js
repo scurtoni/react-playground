@@ -1,0 +1,1 @@
+(self.webpackChunkreact_playground=self.webpackChunkreact_playground||[]).push([[988],{8988:(e,t,a)=>{"use strict";a.r(t),a.d(t,{default:()=>n});var r=a(7294),u=a(9250);const n=function(){var e=(0,u.UO)().id;return r.createElement("div",null,"Request details with ",e)}}}]);

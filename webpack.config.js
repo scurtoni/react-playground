@@ -1,11 +1,12 @@
 const path = require("path");
-const devMode = process.env.NODE_ENV !== "production";
-const globImporter = require("node-sass-glob-importer");
+const mode = process.env.NODE_ENV || "development";
+//const globImporter = require("node-sass-glob-importer");
 
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const SVGSpritemapPlugin = require("svg-spritemap-webpack-plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 //const PRODUCTION = "production";
 /*
@@ -15,7 +16,7 @@ const isProduction = (mode) => {
 };*/
 
 module.exports = {
-  mode: "development",
+  mode,
   entry: {
     app: path.join(__dirname, "src", "index.tsx")
   },
@@ -23,6 +24,9 @@ module.exports = {
     filename: "[name].js",
     chunkFilename: "[name].chunk.js",
     path: path.resolve(__dirname, "dist")
+  },
+  performance: {
+    maxEntrypointSize: 240000
   },
   target: "web",
   resolve: {
@@ -96,24 +100,15 @@ module.exports = {
   },
   optimization: {
     splitChunks: {
-      chunks: "async",
-      minSize: 20000,
-      minRemainingSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      enforceSizeThreshold: 50000,
+      chunks: "all", // Split code from all chunks (sync and async)
+      minSize: 51200,
       cacheGroups: {
-        defaultVendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-          reuseExistingChunk: true
+        vendors: {
+          test: /[\\/]node_modules[\\/]/, // Include node_modules packages in vendor chunk
+          name: "vendors", // Output vendor chunk name
+          chunks: "all" // Split vendor code from all chunks (sync and async)
         },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true
-        }
+        default: false // Disable default cacheGroup to prevent default behavior
       }
     }
   },
@@ -129,6 +124,7 @@ module.exports = {
         filename: "src/style/helpers/_sprites.scss",
         keepAttributes: true
       }
-    })
+    }),
+    new BundleAnalyzerPlugin()
   ]
 };

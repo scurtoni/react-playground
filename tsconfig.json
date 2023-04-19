@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "noImplicitAny": false,
-    "module": "commonjs",
+    "module": "esnext",
     "target": "es5",
     "types": ["node", "jest",  "@testing-library/jest-dom"],
     "lib": ["esnext", "dom", "dom.iterable"],
@@ -30,5 +30,5 @@
       "@style": ["src/style/main.css"]
     }
   },
-  "include": ["./src", "webpack.config.js", "postcss.config.js"]
+  "include": ["./src"]
 }
